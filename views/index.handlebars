@@ -1,21 +1,19 @@
 <h1>EAT THE BURGER</h1>
-
-<p>EAT THE BURGER</p>
 <!-- this is index.handlebars -->
 <ul>
-  {{#each quotes}}
+  {{#each burger}}
   	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Quote:</span> {{this.quote}}</p>
-      <p><span class="label">Author:</span> {{this.author}}</p>
+  		<p>ID: {{this.id}} </p>
+      <p><span class="label">Quote:</span> {{this.burger_name}}</p>
+      <p><span class="label">Author:</span> {{this.date}}</p>
 
       {{!-- Form should send a delete command to the server --}}
-      <form>
+      {{!-- <form>
         <input type="hidden" name="id" value="{{this.id}}">
         <button type="submit">Delete</button>
-      </form>
+      </form> --}}
 
-      <a href="/quotes/{{this.id}}">Update this quote</a>
+      {{!-- <a href="/quotes/{{this.id}}">Update this quote</a> --}}
   	</li>
   {{/each}}
 </ul>
@@ -35,5 +33,6 @@
     <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
   </div>
 
-  <button type="submit">Add Quote</button>
+  <button type="submit">Submit</button>
+  <h5></h5>
 </form>
