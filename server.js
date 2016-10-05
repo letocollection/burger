@@ -31,7 +31,6 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 app.get('/', function(req, res){
-	// res.sendFile(path.join(__dirname + '/public/test.html'));
 	connection.query('SELECT * FROM burgers;', function (err, data) {
 		if (err) throw err;
 		res.render('index', {
@@ -42,10 +41,14 @@ app.get('/', function(req, res){
 	});
 });
 
-app.get('/burgers/:id', function (req, res) {
-	connection.query('SELECT * FROM burgers where id = ?', [req.params.id], function (err, data) {
+app.post('/create', function(req, res) {
+
+	connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?, false);', [req.body.burger_name], function (err, result){
 		if (err) throw err;
-		console.log(data);
-		res.render('burgers', data[0]);
+		res.redirect('/');
 	});
+
 });
+
+
+
