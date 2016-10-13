@@ -1,5 +1,6 @@
 <h1>EAT THE BURGER</h1>
 <!-- this is index.handlebars -->
+
 <ul>
   {{#each burgers}}
   	<li>
@@ -9,7 +10,7 @@
   {{/each}}
 </ul>
 {{!-- Form should send a post command to the server --}}
-<form class="create-form" action="/create" method="POST">
+<form class="create-update-form" action="burgers/create" method="POST">
 
   <div class="form-group">
     <textarea id="quo" name="burger_name" rows="8" cols="40"></textarea>
