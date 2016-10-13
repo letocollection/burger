@@ -1,5 +1,5 @@
 <h1>EAT THE BURGER</h1>
-<!-- this is index.handlebars -->
+
 
 <ul>
   {{#each burgers}}
@@ -12,7 +12,6 @@
       <button type="submit">Devour It!</button>
       </form>
   	</li>
-   {{!--   {{> burgers/delete-burger}} --}}
     {{/unless}}
   {{/each}}
 </ul>
@@ -34,7 +33,6 @@
 </ul>
 
 
-{{!-- Form should send a post command to the server --}}
 <form class="create-update-form" action="burgers/create" method="POST">
 
   <div class="form-group">
