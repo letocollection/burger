@@ -3,12 +3,37 @@
 
 <ul>
   {{#each burgers}}
+     {{#unless this.devoured}}
   	<li>
   		<p>{{this.id}}. {{this.burger_name}}</p>
+        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="true">
+        
       <button type="submit">Devour It!</button>
+      </form>
   	</li>
+   {{!--   {{> burgers/delete-burger}} --}}
+    {{/unless}}
   {{/each}}
 </ul>
+
+<h2>Devoured Burgers</h2>
+  <ul>
+  {{#each burgers}}
+    {{#if this.devoured}}
+      <li>
+        <p>{{this.burger_name}}</p>
+
+        <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="false">
+          <button type="submit">Throw it up</button>
+        </form>
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+
 {{!-- Form should send a post command to the server --}}
 <form class="create-update-form" action="burgers/create" method="POST">
 
